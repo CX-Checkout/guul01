@@ -33,20 +33,20 @@ export var items = {
 
 export var offers: IOffer[] = [
     {
-        products: {'A': 5},
-        price: 200,
-    },
-    {
         products: {'A': 3},
         price: 130,
     },
     {
-        products: {'E': 2, 'B': 1},
-        price: items['E'].price * 2
+        products: {'A': 5},
+        price: 200,
     },
     {
         products: {'B': 2},
         price: 45,
+    },
+    {
+        products: {'E': 2, 'B': 1},
+        price: items['E'].price * 2
     },
     {
         products: {'F': 3},
@@ -73,24 +73,24 @@ export var offers: IOffer[] = [
         price: 200,
     },
     {
-        products: {'R': 3, 'Q': 1},
-        price: items['R'].price * 3,
-    },
-    {
         products: {'Q': 3},
         price: 80,
+    },
+    {
+        products: {'R': 3, 'Q': 1},
+        price: items['R'].price * 3,
     },
     {
         products: {'U': 4},
         price: items['U'].price * 3,
     },
     {
-        products: {'V': 3},
-        price: 130,
-    },
-    {
         products: {'V': 2},
         price: 90,
+    },
+    {
+        products: {'V': 3},
+        price: 130,
     },
     {
         productGroup: ['S', 'T', 'X', 'Y', 'Z'],

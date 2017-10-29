@@ -130,6 +130,10 @@ function getMostExpensiveProductGroupProducts(products: IProductMap, productGrou
     }
 }
 
+function orderProductGroupBuyPrice(productGroup) {
+    
+}
+
 function productContainProducts(products: IProductMap, productsToContain: IProductMap) {
     let containsProducts = true;
     Object.keys(productsToContain)
