@@ -45,7 +45,14 @@ export function shouldReturnTheCorrectPriceFor5A(test) {
     test.done()
 }
 
-export function shouldReturnTheCorrectPriceFor(test) {
-    test.equal(checkout('AAAAA'), 200);
+export function shouldReturnTheCorrectPriceForEEEEBB(test) {
+    test.equal(checkout('EEEEBB'), 160);
+    test.equal(checkout('BEBEEE'), 160);
+    test.done()
+}
+
+export function shouldReturnTheCorrectPriceForABCDEABCDE(test) {
+    test.equal(checkout('ABCDEABCDE'), 160);
+    test.equal(checkout('ABCDEABCDE'), 160);
     test.done()
 }
