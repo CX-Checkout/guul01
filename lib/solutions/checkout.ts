@@ -20,8 +20,9 @@ export function checkout(skus: string) {
     }
     let productsToBuy = skuListToProductsObject(skuList);
     let price = calculatePriceOfAllProducts(productsToBuy);
+    let reductions = calculateReductions(productsToBuy);
     console.log(price);
-    return price;
+    return price - reductions;
 }
 
 function skuListToProductsObject(skuList) {
@@ -43,12 +44,12 @@ export function calculatePriceOfAllProducts(products) {
 
 export function calculatePriceOfProduct(sku, quantity) {
     let product = getProduct(sku);
-    if (sku === 'A') {
-        return calculateMultipleOfferPrice(quantity, product.price, 3, 130);
-    }
-    if (sku === 'B') {
-        return calculateMultipleOfferPrice(quantity, product.price, 2, 45);
-    }
+    // if (sku === 'A') {
+    //     return calculateMultipleOfferPrice(quantity, product.price, 3, 130);
+    // }
+    // if (sku === 'B') {
+    //     return calculateMultipleOfferPrice(quantity, product.price, 2, 45);
+    // }
     return product.price * quantity;
 }
 
@@ -56,8 +57,12 @@ export function calculateReductions(products) {
     const reduction = 0;
     offers.forEach(offer => {
         const offerProducts = skuListToProductsObject(offer.products)
-        if (productContainProducts())
-    })
+        if (productContainProducts(products, offerProducts)) {
+            deductProducts(products, offerProducts);
+            reduction += calculatePriceOfAllProducts(offerProducts) - offer.price
+        }
+    });
+    return reduction;
 }
 
 function productContainProducts(products, productsToContain) {
