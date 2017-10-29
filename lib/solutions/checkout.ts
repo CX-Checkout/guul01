@@ -12,3 +12,15 @@ export function checkout(skus: string[]) {
         }
     }
 }
+
+export function checkout(skus: string) {
+    if (typeof skus !== 'string') {
+        return -1;
+    }
+    const skuList = skus.split(',');
+    let price = 0;
+    let productsToBuy = {};
+    skuList.forEach((sku) => {
+        productsToBuy[sku] = productsToBuy[sku] ? productsToBuy[sku] + 1 :1
+    });
+}
