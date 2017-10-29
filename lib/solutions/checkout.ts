@@ -67,6 +67,7 @@ export function calculateReductions(products: IProductMap) {
         }
         if (offer.productGroup) {
 
+            while (productContainsProductInGroup(products, offer.))
         }
     });
     return reduction;
@@ -87,8 +88,19 @@ function getProductGroupProducts(products: IProductMap, productGroup: string[], 
     let numberOfProductsStillRequired = quantity;
     let productGroupProducts = {};
     for ( let i = 0; i < productGroup.length; i++ ) {
-
-        let sku = products
+        let sku = productGroup[i];
+        if (products[sku]) {
+            if (products[sku] > numberOfProductsStillRequired) {
+                productGroupProducts[sku] = numberOfProductsStillRequired;
+                numberOfProductsStillRequired = 0;
+            } else {
+                productGroupProducts[sku] = products[sku];
+                numberOfProductsStillRequired -= products[sku];
+            }
+        }
+        if (numberOfProductsStillRequired === 0) {
+            return productGroupProducts
+        }
     }
 }
 
