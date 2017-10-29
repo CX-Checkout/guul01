@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = function (friendName: string) {
-    return "Hello, World!";
+    return "Hello, "+friendName+"!";
 };
