@@ -34,3 +34,7 @@ export function shouldReturnTheCorrectPriceFor4B(test) {
     test.done()
 }
 
+export function shouldReturnTheCorrectPriceFor5A(test) {
+    test.equal(checkout('AAAAA'), 200);
+    test.done()
+}
