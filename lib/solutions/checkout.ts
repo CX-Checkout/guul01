@@ -17,7 +17,13 @@ export function checkout(skus: string) {
     skuList.forEach((sku) => {
         productsToBuy[sku] = productsToBuy[sku] ? productsToBuy[sku] + 1 :1
     });
-    return calculatePriceOfAllProducts(productsToBuy)
+
+    try{
+        return calculatePriceOfAllProducts(productsToBuy);
+    } catch (e) {
+        console.log(e);
+        return -1;
+    }
 }
 
 export function calculatePriceOfAllProducts(products) {
