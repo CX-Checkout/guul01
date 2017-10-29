@@ -135,10 +135,10 @@ function orderProductGroupBuyPrice(productGroup) {
     return productGroup.sort((sku1, sku2) => {
         const price1 = getProduct(sku1).price;
         const price2 = getProduct(sku2).price;
-        if (price1 > price2) {
+        if (price1 < price2) {
             return 1;
         }
-        if (price1 < price2) {
+        if (price1 > price2) {
             return -1;
         }
         return 0;
