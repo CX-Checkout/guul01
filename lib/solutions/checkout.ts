@@ -2,9 +2,10 @@
 
 import {items} from "./items";
 
-export const deliminator = ',';
+export const deliminator = '';
 
 export function checkout(skus: string) {
+    console.log(skus);
     if (typeof skus !== 'string') {
         return -1;
     }
@@ -12,7 +13,6 @@ export function checkout(skus: string) {
         return 0;
     }
     const skuList = skus.split(deliminator);
-    let price = 0;
     let productsToBuy = {};
     skuList.forEach((sku) => {
         productsToBuy[sku] = productsToBuy[sku] ? productsToBuy[sku] + 1 : 1
