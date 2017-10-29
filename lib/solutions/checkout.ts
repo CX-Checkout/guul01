@@ -1,5 +1,7 @@
 'use strict';
 
+interface IProductMap {[key:string]: number}
+
 import {items, offers, productExists} from "./items";
 
 export const deliminator = '';
@@ -18,7 +20,7 @@ export function checkout(skus: string) {
             return -1;
         }
     }
-    let productsToBuy = skuListToProductsObject(skuList);
+    let productsToBuy = skuListToProductsMap(skuList);
     console.log(productsToBuy)
     let price = calculatePriceOfAllProducts(productsToBuy);
     let reductions = calculateReductions(productsToBuy);
@@ -27,7 +29,7 @@ export function checkout(skus: string) {
     return total;
 }
 
-function skuListToProductsObject(skuList) {
+function skuListToProductsMap(skuList): IProductMap {
     let products = {};
     skuList.forEach((sku) => {
         products[sku] = products[sku] ? products[sku] + 1 : 1
@@ -35,7 +37,7 @@ function skuListToProductsObject(skuList) {
     return products;
 }
 
-export function calculatePriceOfAllProducts(products) {
+export function calculatePriceOfAllProducts(products: IProductMap) {
     let price = 0;
     Object.keys(products)
         .forEach((productSku) => {
@@ -55,10 +57,10 @@ export function calculatePriceOfProduct(sku, quantity) {
     return product.price * quantity;
 }
 
-export function calculateReductions(products) {
+export function calculateReductions(products: IProductMap) {
     const reduction = 0;
     offers.forEach(offer => {
-        const offerProducts = skuListToProductsObject(offer.products)
+        const offerProducts = skuListToProductsMap(offer.products);
         while (productContainProducts(products, offerProducts)) {
             deductProducts(products, offerProducts);
             reduction += calculatePriceOfAllProducts(offerProducts) - offer.price
@@ -67,7 +69,7 @@ export function calculateReductions(products) {
     return reduction;
 }
 
-function productContainProducts(products, productsToContain) {
+function productContainProducts(products: IProductMap, productsToContain: IProductMap) {
     let containsProducts = true;
     Object.keys(productsToContain)
         .forEach(product => {
