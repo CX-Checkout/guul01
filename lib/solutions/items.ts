@@ -31,11 +31,11 @@ export var offers = [
         price: 130,
     },
     {
-        products: ['B', 'B'],
-        price: 45,
-    },
-    {
         products: ['E', 'E', 'B'],
         price: items['E'].price * 2
+    },
+    {
+        products: ['B', 'B'],
+        price: 45,
     }
 ];

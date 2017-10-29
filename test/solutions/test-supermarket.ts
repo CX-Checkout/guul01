@@ -52,7 +52,6 @@ export function shouldReturnTheCorrectPriceForEEEEBB(test) {
 }
 
 export function shouldReturnTheCorrectPriceForABCDEABCDE(test) {
-    test.equal(checkout('ABCDEABCDE'), 160);
-    test.equal(checkout('ABCDEABCDE'), 160);
+    test.equal(checkout('ABCDEABCDE'), 280);
     test.done()
 }
