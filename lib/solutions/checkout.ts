@@ -27,5 +27,23 @@ export function calculatePriceOfAllProducts(products) {
 }
 
 export function calculatePriceOfProduct(sku, quantity) {
-    return items[sku].price * quantity;
+    let product = getProduct(sku);
+    if (sku === 'A') {
+        return calculateMultipleOfferPrice(quantity, product.price, 3, 130);
+    }
+    if (sku === 'B') {
+        return calculateMultipleOfferPrice(quantity, product.price, 2, 45);
+    }
+    return product.price * quantity;
 }
+
+function getProduct(sku) {
+    return items[sku];
+}
+
+function calculateMultipleOfferPrice(quantity, price, multibuy, multibuyPrice) {
+    let numberOfMultibuys = Math.floor(quantity / multibuy);
+    let quantityAfterMultiBuy = quantity - (numberOfMultibuys * multibuy);
+    return numberOfMultibuys * multibuyPrice + quantityAfterMultiBuy * price;
+
+    1}
