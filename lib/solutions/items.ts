@@ -18,6 +18,9 @@ export var items = {
     },
     "E": {
         price: 40
+    },
+    "F": {
+        price: 10
     }
 };
 
@@ -37,5 +40,9 @@ export var offers = [
     {
         products: ['B', 'B'],
         price: 45,
+    },
+    {
+        products: ['F', 'F', 'F'],
+        price: items['F'].price * 2
     }
 ];

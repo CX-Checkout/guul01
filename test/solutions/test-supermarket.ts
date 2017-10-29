@@ -55,3 +55,8 @@ export function shouldReturnTheCorrectPriceForABCDEABCDE(test) {
     test.equal(checkout('ABCDEABCDE'), 280);
     test.done()
 }
+
+export function shouldReturnTheCorrectPriceForFF(test) {
+    test.equal(checkout('FF'), 20);
+    test.done()
+}
