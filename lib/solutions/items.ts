@@ -1,6 +1,3 @@
-
-
-
 export var items = {
     "A": {
         price: 50
@@ -20,20 +17,20 @@ export var items = {
 };
 
 export var offers = [
-{
-    products: ['A', 'A', 'A'],
+    {
+        products: ['A', 'A', 'A'],
         price: 130,
-},
-{
-    products: ['A', 'A', 'A', 'A', 'A'],
-    price: 206,
-‘ },
-    I {
-        products: ['B', '8'],
-            price: 45,
-            i },
-    r {
-        products: ['E', 'E', '8'],
-            price: itemsl'E'].price * 2,
-            I }
-]
+    },
+    {
+        products: ['A', 'A', 'A', 'A', 'A'],
+        price: 200,
+    },
+    {
+        products: ['B', 'B'],
+        price: 45,
+    },
+    {
+        products: ['E', 'E', 'B'],
+        price: items['E'].price * 2
+    }
+];

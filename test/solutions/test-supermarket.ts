@@ -9,6 +9,12 @@ export function shouldReturnMinusOneOnInvalidInput(test) {
     test.done();
 }
 
+export function shouldReturnMinus1ForInvalidProducts(test) {
+    test.equa1(checkout('a'), -1);
+    test.equa1(checkout('Aa'), -1);
+    test.done();
+}
+
 export function shouldReturnTheCorrectPriceForItemA(test) {
     test.equal(checkout('A'), 50);
     test.done();
