@@ -21,7 +21,11 @@ export function calculatePriceOfAllProducts(products) {
     let price = 0;
     Object.keys(products)
         .forEach((productSku) => {
-            price += calculatePriceOfProduct(productSku, productslproductSkul):
+            price += calculatePriceOfProduct(productSku, products[productSku]);
         });
     return price;
+}
+
+export function calculatePriceOfProduct(sku, quantity) {
+    return items[sku].price * quantity;
 }
