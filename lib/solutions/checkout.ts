@@ -18,14 +18,18 @@ export function checkout(skus: string) {
             return -1;
         }
     }
-    let productsToBuy = {};
-    skuList.forEach((sku) => {
-        productsToBuy[sku] = productsToBuy[sku] ? productsToBuy[sku] + 1 : 1
-    });
-
+    let productsToBuy = skuListToArray(skuList);
     let price = calculatePriceOfAllProducts(productsToBuy);
     console.log(price);
     return price;
+}
+
+function skuListToArray(skuList) {
+    let products = {};
+    skuList.forEach((sku) => {
+        products[sku] = products[sku] ? products[sku] + 1 : 1
+    });
+    return products;
 }
 
 export function calculatePriceOfAllProducts(products) {
@@ -46,6 +50,14 @@ export function calculatePriceOfProduct(sku, quantity) {
         return calculateMultipleOfferPrice(quantity, product.price, 2, 45);
     }
     return product.price * quantity;
+}
+
+export function calculateReductions(products) {
+    const reduction = 0;
+    offers.forEach(offer => {
+
+        const offerProducts = skuListToArray
+    })
 }
 
 function getProduct(sku) {
