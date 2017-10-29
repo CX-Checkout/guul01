@@ -15,11 +15,13 @@ export function checkout(skus: string) {
     let price = 0;
     let productsToBuy = {};
     skuList.forEach((sku) => {
-        productsToBuy[sku] = productsToBuy[sku] ? productsToBuy[sku] + 1 :1
+        productsToBuy[sku] = productsToBuy[sku] ? productsToBuy[sku] + 1 : 1
     });
 
     try{
-        return calculatePriceOfAllProducts(productsToBuy);
+        let price = calculatePriceOfAllProducts(productsToBuy);
+        console.log(price);
+        return price;
     } catch (e) {
         console.log(e);
         return -1;
