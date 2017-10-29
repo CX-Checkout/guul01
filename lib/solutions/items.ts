@@ -1,3 +1,8 @@
+
+export function productExists(sku) {
+    return typeof items[sku] !== 'undefined';
+}
+
 export var items = {
     "A": {
         price: 50

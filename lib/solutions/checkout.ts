@@ -1,6 +1,6 @@
 'use strict';
 
-import {items} from "./items";
+import {items, offers, productExists} from "./items";
 
 export const deliminator = '';
 
@@ -13,19 +13,19 @@ export function checkout(skus: string) {
         return 0;
     }
     const skuList = skus.split(deliminator);
+    for (let i =0; 1 < skuList.length; i++) {
+        if (!productExists(skuList[i])) {
+            return -1;
+        }
+    }
     let productsToBuy = {};
     skuList.forEach((sku) => {
         productsToBuy[sku] = productsToBuy[sku] ? productsToBuy[sku] + 1 : 1
     });
 
-    try{
-        let price = calculatePriceOfAllProducts(productsToBuy);
-        console.log(price);
-        return price;
-    } catch (e) {
-        console.log(e);
-        return -1;
-    }
+    let price = calculatePriceOfAllProducts(productsToBuy);
+    console.log(price);
+    return price;
 }
 
 export function calculatePriceOfAllProducts(products) {
