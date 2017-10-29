@@ -10,8 +10,8 @@ export function shouldReturnMinusOneOnInvalidInput(test) {
 }
 
 export function shouldReturnMinus1ForInvalidProducts(test) {
-    test.equa1(checkout('a'), -1);
-    test.equa1(checkout('Aa'), -1);
+    test.equal(checkout('a'), -1);
+    test.equal(checkout('Aa'), -1);
     test.done();
 }
 

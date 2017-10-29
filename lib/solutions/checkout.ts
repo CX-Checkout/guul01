@@ -13,7 +13,7 @@ export function checkout(skus: string) {
         return 0;
     }
     const skuList = skus.split(deliminator);
-    for (let i =0; 1 < skuList.length; i++) {
+    for (let i = 0; i < skuList.length; i++) {
         if (!productExists(skuList[i])) {
             return -1;
         }
