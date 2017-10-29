@@ -1,8 +1,6 @@
 'use strict';
 
-interface IProductMap {[key:string]: number}
-
-import {items, offers, productExists} from "./items";
+import {items, offers, productExists, IProductMap} from "./items";
 
 export const deliminator = '';
 
@@ -66,6 +64,9 @@ export function calculateReductions(products: IProductMap) {
                 deductProducts(products, offerProducts);
                 reduction += calculatePriceOfAllProducts(offerProducts) - offer.price
             }
+        }
+        if (offer.productGroup) {
+
         }
     });
     return reduction;

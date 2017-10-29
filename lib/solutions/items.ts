@@ -31,7 +31,7 @@ export var items = {
     "Z": {price: 50},
 };
 
-export var offers = [
+export var offers: IOffer[] = [
     {
         products: {'A': 5},
         price: 200,
@@ -98,3 +98,13 @@ export var offers = [
         price: 45
     }
 ];
+
+export interface IOffer {
+    price: number;
+    products?: IProductMap,
+    quantity?: number,
+    productGroup?: string[]
+}
+
+
+export interface IProductMap {[key:string]: number}
