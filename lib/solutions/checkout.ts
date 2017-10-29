@@ -1,6 +1,6 @@
 'use strict';
 
-import {items, offers, productExists, IProductMap} from "./items";
+import {items, offers, productExists, IProductMap, IOffer} from "./items";
 
 export const deliminator = '';
 
@@ -57,7 +57,7 @@ export function calculatePriceOfProduct(sku, quantity) {
 
 export function calculateReductions(products: IProductMap) {
     const reduction = 0;
-    offers.forEach(offer => {
+    offers.forEach((offer:IOffer) => {
         if (offer.products) {
             const offerProducts = offer.products;
             while (productContainProducts(products, offerProducts)) {
@@ -71,6 +71,17 @@ export function calculateReductions(products: IProductMap) {
     });
     return reduction;
 }
+
+function productContainsProductInGroup(products: IProductMap, productGroup: string[], quantity: number) {
+    let numberOfProductsInGroup = 0;
+    productGroup.forEach(sku => {
+        if (products[sku]) {
+            numberOfProductsInGroup += products[sku]
+        }
+    });
+    return numberOfProductsInGroup > quantity;
+}
+
 
 function productContainProducts(products: IProductMap, productsToContain: IProductMap) {
     let containsProducts = true;
