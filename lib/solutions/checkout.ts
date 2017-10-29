@@ -56,6 +56,7 @@ export function calculateReductions(products) {
     const reduction = 0;
     offers.forEach(offer => {
         const offerProducts = skuListToProductsObject(offer.products)
+        if (productContainProducts())
     })
 }
 
@@ -63,7 +64,19 @@ function productContainProducts(products, productsToContain) {
     let containsProducts = true;
     Object.keys(productsToContain)
         .forEach(product => {
-            
+            const numberToContain = productsToContain[product];
+            const numberHas = products[product] || 0;
+            if (numberHas < numberToContain) {
+                containsProducts = false;
+            }
+        });
+    return containsProducts;
+}
+
+function deductProducts(products, productsToDeduct) {
+    Object.keys(productsToDeduct)
+        .forEach(product => {
+            products[product] -= productsToDeduct[product];
         })
 }
 
