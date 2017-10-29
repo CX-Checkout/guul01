@@ -73,7 +73,7 @@ export function calculateReductions(products: IProductMap) {
     return reduction;
 }
 
-function findBestOffer(products, offer) {
+function findBestOffer(products) {
     let bestOffer = null;
     let bestReduction = 0;
     offers.forEach((offer: IOffer) => {
@@ -97,6 +97,7 @@ function findBestOffer(products, offer) {
         }
     });
 
+    return bestOffer;
 }
 
 function productContainsProductInGroup(products: IProductMap, productGroup: string[], quantity: number) {
