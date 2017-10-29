@@ -13,7 +13,7 @@ export var items = {
     "H": {price: 10},
     "I": {price: 35},
     "J": {price: 60},
-    "K": {price: 80},
+    "K": {price: 70},
     "L": {price: 90},
     "M": {price: 15},
     "N": {price: 40},
@@ -62,7 +62,7 @@ export var offers: IOffer[] = [
     },
     {
         products: {'K': 2},
-        price: 150,
+        price: 120,
     },
     {
         products: {'N': 3, 'M': 1},

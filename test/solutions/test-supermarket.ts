@@ -23,12 +23,8 @@ export function shouldReturnTheCorrectPriceForItemA(test) {
     test.done();
 }
 
-export function shouldReturnTheCorrectPriceFor3B(test) {
-    test.equal(checkout('B' + deliminator + 'B' + deliminator + 'B'), 75);
-    test.done()
-}
-
-export function shouldReturnTheCorrectPriceFor4B(test) {
+export function shouldReturnTheCorrectPriceForB(test) {
+    test.equal(checkout('BBB'), 75);
     test.equal(checkout('BBBB'), 90);
     test.done()
 }
