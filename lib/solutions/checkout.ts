@@ -18,13 +18,13 @@ export function checkout(skus: string) {
             return -1;
         }
     }
-    let productsToBuy = skuListToArray(skuList);
+    let productsToBuy = skuListToProductsObject(skuList);
     let price = calculatePriceOfAllProducts(productsToBuy);
     console.log(price);
     return price;
 }
 
-function skuListToArray(skuList) {
+function skuListToProductsObject(skuList) {
     let products = {};
     skuList.forEach((sku) => {
         products[sku] = products[sku] ? products[sku] + 1 : 1
@@ -55,9 +55,16 @@ export function calculatePriceOfProduct(sku, quantity) {
 export function calculateReductions(products) {
     const reduction = 0;
     offers.forEach(offer => {
-
-        const offerProducts = skuListToArray
+        const offerProducts = skuListToProductsObject(offer.products)
     })
+}
+
+function productContainProducts(products, productsToContain) {
+    let containsProducts = true;
+    Object.keys(productsToContain)
+        .forEach(product => {
+            
+        })
 }
 
 function getProduct(sku) {
