@@ -17,17 +17,10 @@ export function shouldReturnMinus1ForInvalidProducts(test) {
 
 export function shouldReturnTheCorrectPriceForItemA(test) {
     test.equal(checkout('A'), 50);
-    test.done();
-}
-
-export function shouldReturnTheCorrectPriceFor2ItemsA(test) {
     test.equal(checkout('AA'), 100);
-    test.done();
-}
+    test.equal(checkout('AAAAAA'), 200);
 
-export function shouldReturnTheCorrectPriceFor3ItemA(test) {
-    test.equal(checkout('A' + deliminator + 'A' + deliminator + 'A'), 130);
-    test.done()
+    test.done();
 }
 
 export function shouldReturnTheCorrectPriceFor3B(test) {
