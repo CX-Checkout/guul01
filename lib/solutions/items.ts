@@ -65,23 +65,23 @@ export var items = {
  */
 export var offers = [
     {
-        products: ['A', 'A', 'A', 'A', 'A'],
+        products: {'A': 5},
         price: 200,
     },
     {
-        products: ['A', 'A', 'A'],
+        products: {'A': 3},
         price: 130,
     },
     {
-        products: ['E', 'E', 'B'],
+        products: {'E': 2, 'B': 1},
         price: items['E'].price * 2
     },
     {
-        products: ['B', 'B'],
+        products: {'B': 2},
         price: 45,
     },
     {
-        products: ['F', 'F', 'F'],
+        products: {'F': 3},
         price: items['F'].price * 2
     },
     {
