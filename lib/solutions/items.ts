@@ -31,38 +31,10 @@ export var items = {
     "Z": {price: 50},
 };
 
-/**
- *
- *
- | A    | 50    | 3A for 130, 5A for 200 |
- | B    | 30    | 2B for 45              |
- | C    | 20    |                        |
- | D    | 15    |                        |
- | E    | 40    | 2E get one B free      |
- | F    | 10    | 2F get one F free      |
- | G    | 20    |                        |
- | H    | 10    | 5H for 45, 10H for 80  |
- | I    | 35    |                        |
- | J    | 60    |                        |
- | K    | 80    | 2K for 150             |
- | L    | 90    |                        |
- | M    | 15    |                        |
- | N    | 40    | 3N get one M free      |
- | O    | 10    |                        |
- | P    | 50    | 5P for 200             |
- | Q    | 30    | 3Q for 80              |
- | R    | 50    | 3R get one Q free      |
- | S    | 30    |                        |
- | T    | 20    |                        |
- | U    | 40    | 3U get one U free      |
- | V    | 50    | 2V for 90, 3V for 130  |
- | W    | 20    |                        |
- | X    | 90    |                        |
- | Y    | 10    |                        |
- | Z    | 50    |                        |
+var groupOffers = {
 
- * @type {[{products: [string , string , string , string , string]; price: number} , {products: [string , string , string]; price: number} , {products: [string , string , string]; price: number} , {products: [string , string]; price: number} , {products: [string , string , string]; price: number}]}
- */
+}
+
 export var offers = [
     {
         products: {'A': 5},
@@ -85,43 +57,43 @@ export var offers = [
         price: items['F'].price * 2
     },
     {
-        products: ['H', 'H', 'H', 'H', 'H', 'H', 'H', 'H', 'H', 'H'],
+        products: {'H': 10},
         price: 80,
     },
     {
-        products: ['H', 'H', 'H', 'H', 'H'],
+        products: {'H': 5},
         price: 45,
     },
     {
-        products: ['K', 'K'],
+        products: {'K': 2},
         price: 150,
     },
     {
-        products: ['N', 'N', 'N', 'M'],
+        products: {'N': 3, 'M': 1},
         price: items['N'].price * 3,
     },
     {
-        products: ['P', 'P', 'P', 'P', 'P'],
+        products: {'P': 5},
         price: 200,
     },
     {
-        products: ['R', 'R', 'R', 'Q'],
+        products: {'R': 3, 'Q': 1},
         price: items['R'].price * 3,
     },
     {
-        products: ['Q', 'Q', 'Q'],
+        products: {'Q': 3},
         price: 80,
     },
     {
-        products: ['U', 'U', 'U', 'U'],
+        products: {'U': 4},
         price: items['U'].price * 3,
     },
     {
-        products: ['V', 'V', 'V'],
+        products: {'V': 3},
         price: 130,
     },
     {
-        products: ['V', 'V'],
+        products: {'V': 2},
         price: 90,
     },
 ];

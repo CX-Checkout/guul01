@@ -60,7 +60,7 @@ export function calculatePriceOfProduct(sku, quantity) {
 export function calculateReductions(products: IProductMap) {
     const reduction = 0;
     offers.forEach(offer => {
-        const offerProducts = skuListToProductsMap(offer.products);
+        const offerProducts = offer.products;
         while (productContainProducts(products, offerProducts)) {
             deductProducts(products, offerProducts);
             reduction += calculatePriceOfAllProducts(offerProducts) - offer.price
