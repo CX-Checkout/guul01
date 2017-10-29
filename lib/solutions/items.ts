@@ -21,14 +21,14 @@ export var items = {
     "P": {price: 50},
     "Q": {price: 30},
     "R": {price: 50},
-    "S": {price: 30},
+    "S": {price: 20},
     "T": {price: 20},
     "U": {price: 40},
     "V": {price: 50},
     "W": {price: 20},
-    "X": {price: 90},
-    "Y": {price: 10},
-    "Z": {price: 50},
+    "X": {price: 17},
+    "Y": {price: 20},
+    "Z": {price: 21},
 };
 
 export var offers: IOffer[] = [
