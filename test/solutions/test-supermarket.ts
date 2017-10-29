@@ -82,3 +82,9 @@ export function shouldReturnTheCorrectPriceForAll(test) {
     test.equal(checkout('VVV'), 130);
     test.done()
 }
+
+export function shouldReturnTheCorrectPriceForProductGroups(test) {
+    test.equal(checkout('STX'), 45);
+    test.equal(checkout('SSS'), 45);
+    test.done()
+}

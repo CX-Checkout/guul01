@@ -92,4 +92,9 @@ export var offers = [
         products: {'V': 2},
         price: 90,
     },
+    {
+        productGroup: ['S', 'T', 'X', 'Y', 'Z'],
+        quantity: 3,
+        price: 45
+    }
 ];
