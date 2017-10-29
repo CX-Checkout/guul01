@@ -77,6 +77,8 @@ export function shouldReturnTheCorrectPriceForAll(test) {
     test.equal(checkout('PPPPP'), 200);
     test.equal(checkout('QQQ'), 80);
     test.equal(checkout('RRRQ'), 150);
-    test.equal(checkout('RRRQ'), 150);
+    test.equal(checkout('UUUU'), 120);
+    test.equal(checkout('VV'), 90);
+    test.equal(checkout('VVV'), 130);
     test.done()
 }
