@@ -19,10 +19,12 @@ export function checkout(skus: string) {
         }
     }
     let productsToBuy = skuListToProductsObject(skuList);
+    console.log(productsToBuy)
     let price = calculatePriceOfAllProducts(productsToBuy);
     let reductions = calculateReductions(productsToBuy);
-    console.log(price);
-    return price - reductions;
+    let total = price - reductions;
+    console.log(skus + "price:"+ price + " reductions:" + reductions + " total:" + total);
+    return total;
 }
 
 function skuListToProductsObject(skuList) {
