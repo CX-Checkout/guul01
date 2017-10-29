@@ -1,5 +1,5 @@
 
-import {checkout} from "../../lib/solutions/checkout";
+import {checkout, deliminator} from "../../lib/solutions/checkout";
 
 export function shouldReturnMinusOneOnInvalidInput(test) {
     test.equal(checkout(), -1);
@@ -12,17 +12,14 @@ export function shouldReturnMinusOneOnInvalidInput(test) {
 export function shouldReturnTheCorrectPriceForItemA(test) {
     test.equal(checkout('A'), 50);
     test.done();
+}
 
-    w}
-
-1exno rt function §Mulgﬁgumwuegﬁcissﬁoﬁuwwtest) {
-    test.equa1(checkout('A' + deliminator + 'A'), 100);
+export function shouldReturnTheCorrectPriceFor2ItemsA(test) {
+    test.equal(checkout('A' + deliminator + 'A'), 100);
     test.done();
+}
 
-    r}
-
-Texport function 5Mulgﬁotuwnmqotﬁnim£11m§(test) {
-    test.equa1(checkout('A' + deliminator + 'A'), 130);
-    test.done():
-
-\}
+export function shouldReturnTheCorrectPriceFor3ItemA(test) {
+    test.equal(checkout('A' + deliminator + 'A'), 130);
+    test.done()
+}
