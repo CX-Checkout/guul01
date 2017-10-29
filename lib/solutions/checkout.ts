@@ -111,10 +111,11 @@ function productContainsProductInGroup(products: IProductMap, productGroup: stri
 
 
 function getMostExpensiveProductGroupProducts(products: IProductMap, productGroup: string[], quantity: number) {
+    let orderedProductGroup = orderProductGroupBuyPrice(productGroup);
     let numberOfProductsStillRequired = quantity;
     let productGroupProducts = {};
-    for (let i = 0; i < productGroup.length; i++) {
-        let sku = productGroup[i];
+    for (let i = 0; i < orderedProductGroup.length; i++) {
+        let sku = orderedProductGroup[i];
         if (products[sku]) {
             if (products[sku] > numberOfProductsStillRequired) {
                 productGroupProducts[sku] = numberOfProductsStillRequired;
@@ -131,7 +132,17 @@ function getMostExpensiveProductGroupProducts(products: IProductMap, productGrou
 }
 
 function orderProductGroupBuyPrice(productGroup) {
-    
+    return productGroup.sort((sku1, sku2) => {
+        const price1 = getProduct(sku1).price;
+        const price2 = getProduct(sku2).price;
+        if (price1 > price2) {
+            return 1;
+        }
+        if (price1 < price2) {
+            return -1;
+        }
+        return 0;
+    })
 }
 
 function productContainProducts(products: IProductMap, productsToContain: IProductMap) {
