@@ -8,6 +8,9 @@ export function checkout(skus: string) {
     if (typeof skus !== 'string') {
         return -1;
     }
+    if (skus.length === 0) {
+        return 0;
+    }
     const skuList = skus.split(deliminator);
     let price = 0;
     let productsToBuy = {};
@@ -38,12 +41,15 @@ export function calculatePriceOfProduct(sku, quantity) {
 }
 
 function getProduct(sku) {
-    return items[sku];
+    let product = items[sku];
+    if (!product) {
+        throw new Error('No such product' + sku);
+    }
+    return product;
 }
 
 function calculateMultipleOfferPrice(quantity, price, multibuy, multibuyPrice) {
     let numberOfMultibuys = Math.floor(quantity / multibuy);
     let quantityAfterMultiBuy = quantity - (numberOfMultibuys * multibuy);
     return numberOfMultibuys * multibuyPrice + quantityAfterMultiBuy * price;
-
-    1}
+}
