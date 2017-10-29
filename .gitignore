@@ -3,3 +3,5 @@ node_modules
 challenges/*.txt
 record/localstore
 config/credentials.config
+lib/solutions/*.js
+test/solutions/*.js
