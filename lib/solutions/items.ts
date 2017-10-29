@@ -23,12 +23,12 @@ export var items = {
 
 export var offers = [
     {
-        products: ['A', 'A', 'A'],
-        price: 130,
-    },
-    {
         products: ['A', 'A', 'A', 'A', 'A'],
         price: 200,
+    },
+    {
+        products: ['A', 'A', 'A'],
+        price: 130,
     },
     {
         products: ['B', 'B'],

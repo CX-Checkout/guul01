@@ -59,7 +59,7 @@ export function calculateReductions(products) {
     const reduction = 0;
     offers.forEach(offer => {
         const offerProducts = skuListToProductsObject(offer.products)
-        if (productContainProducts(products, offerProducts)) {
+        while (productContainProducts(products, offerProducts)) {
             deductProducts(products, offerProducts);
             reduction += calculatePriceOfAllProducts(offerProducts) - offer.price
         }
