@@ -83,6 +83,15 @@ function productContainsProductInGroup(products: IProductMap, productGroup: stri
 }
 
 
+function getProductGroupProducts(products: IProductMap, productGroup: string[], quantity: number) {
+    let numberOfProductsStillRequired = quantity;
+    let productGroupProducts = {};
+    for ( let i = 0; i < productGroup.length; i++ ) {
+
+        let sku = products
+    }
+}
+
 function productContainProducts(products: IProductMap, productsToContain: IProductMap) {
     let containsProducts = true;
     Object.keys(productsToContain)
