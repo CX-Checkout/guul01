@@ -83,5 +83,13 @@ export var offers = [
     {
         products: ['F', 'F', 'F'],
         price: items['F'].price * 2
-    }
+    },
+    {
+        products: ['H', 'H', 'H', 'H', 'H', 'H', 'H', 'H', 'H', 'H'],
+        price: 80,
+    },
+    {
+        products: ['H', 'H', 'H', 'H', 'H'],
+        price: 45,
+    },
 ];

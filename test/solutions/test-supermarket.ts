@@ -60,3 +60,23 @@ export function shouldReturnTheCorrectPriceForFF(test) {
     test.equal(checkout('FF'), 20);
     test.done()
 }
+
+export function shouldReturnTheCorrectPriceForHHHHH(test) {
+    test.equal(checkout('HHHHH'), 45);
+    test.done()
+}
+
+export function shouldReturnTheCorrectPriceForHHHHHHHHHH(test) {
+    test.equal(checkout('HHHHHHHHHH'), 80);
+    test.done()
+}
+
+export function shouldReturnTheCorrectPriceForAll(test) {
+    test.equal(checkout('KK'), 150);
+    test.equal(checkout('NNNM'), 120);
+    test.equal(checkout('PPPPP'), 200);
+    test.equal(checkout('QQQ'), 80);
+    test.equal(checkout('RRRQ'), 150);
+    test.equal(checkout('RRRQ'), 150);
+    test.done()
+}
