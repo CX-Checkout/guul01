@@ -57,8 +57,9 @@ export function calculatePriceOfProduct(sku, quantity) {
 
 export function calculateReductions(products: IProductMap) {
     let reduction = 0;
-    let bestOffer = null;
-    let bestReduction = 0;
+
+    let offer: IOffer;
+    while (offer = )
     offers.forEach((offer:IOffer) => {
         if (offer.products) {
             const offerProducts = offer.products;
@@ -70,7 +71,7 @@ export function calculateReductions(products: IProductMap) {
         if (offer.productGroup) {
 
             while (productContainsProductInGroup(products, offer.productGroup, offer.quantity)) {
-                let productsToDeduct = getProductGroupProducts(products, offer.productGroup, offer.quantity);
+                let productsToDeduct = getMostExpensiveProductGroupProducts(products, offer.productGroup, offer.quantity);
                 deductProducts(products, productsToDeduct);
                 reduction += calculatePriceOfAllProducts(productsToDeduct) - offer.price
             }
@@ -83,20 +84,23 @@ function findBestOffer(products, offer) {
     let bestOffer = null;
     let bestReduction = 0;
     offers.forEach((offer:IOffer) => {
+        let reduction = 0;
         if (offer.products) {
             const offerProducts = offer.products;
-            while (productContainProducts(products, offerProducts)) {
-                deductProducts(products, offerProducts);
-                reduction += calculatePriceOfAllProducts(offerProducts) - offer.price
+            if (productContainProducts(products, offerProducts)) {
+                reduction = calculatePriceOfAllProducts(offerProducts) - offer.price
             }
         }
         if (offer.productGroup) {
-
-            while (productContainsProductInGroup(products, offer.productGroup, offer.quantity)) {
-                let productsToDeduct = getProductGroupProducts(products, offer.productGroup, offer.quantity);
-                deductProducts(products, productsToDeduct);
-                reduction += calculatePriceOfAllProducts(productsToDeduct) - offer.price
+            if (productContainsProductInGroup(products, offer.productGroup, offer.quantity)) {
+                let productsToDeduct = getMostExpensiveProductGroupProducts(products, offer.productGroup, offer.quantity);
+                reduction = calculatePriceOfAllProducts(productsToDeduct) - offer.price
             }
+        }
+
+        if (reduction > bestReduction) {
+            bestReduction = reduction;
+            bestOffer = offer
         }
     });
 
@@ -113,7 +117,7 @@ function productContainsProductInGroup(products: IProductMap, productGroup: stri
 }
 
 
-function getProductGroupProducts(products: IProductMap, productGroup: string[], quantity: number) {
+function getMostExpensiveProductGroupProducts(products: IProductMap, productGroup: string[], quantity: number) {
     let numberOfProductsStillRequired = quantity;
     let productGroupProducts = {};
     for ( let i = 0; i < productGroup.length; i++ ) {
