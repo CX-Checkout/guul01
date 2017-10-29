@@ -31,10 +31,6 @@ export var items = {
     "Z": {price: 50},
 };
 
-var groupOffers = {
-
-}
-
 export var offers = [
     {
         products: {'A': 5},
